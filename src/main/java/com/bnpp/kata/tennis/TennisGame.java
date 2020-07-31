@@ -73,4 +73,10 @@ public class TennisGame {
 		return getScores()[firstPlayer.getScoredPoint()] + GAME_SCORE_SEPARATOR + GAME_SCORE_ALL;
 	}
 
+	public void addServicePointToWinner(String winningPlayerIndicator) {
+		if ("A".equals(winningPlayerIndicator)) {
+			firstPlayer.incrementPlayerScore();
+		}
+	}
+
 }

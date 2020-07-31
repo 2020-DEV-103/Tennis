@@ -162,6 +162,16 @@ public class TennisGameTest {
 		assertThat("BBB", CoreMatchers.is(tennisGame.getSecondPlayer().getName()));
 	}
 
+	@Test
+	public void firstPlayerScoreShouldBeAutoIncrementByOneWhenPassingPlayerIndicatorAsA() {
+		updatePlayersScore(1, 1);
+
+		int expectedFirstPlayerPoint = tennisGame.getFirstPlayer().getScoredPoint() + 1;
+		tennisGame.addServicePointToWinner("A");
+
+		assertThat(expectedFirstPlayerPoint, CoreMatchers.is(tennisGame.getFirstPlayer().getScoredPoint()));
+	}
+
 	private void updatePlayersScore(int firsPlayerWinningCounts, int secondPlayerWinningCounts) {
 		for (int winningCount = 0; winningCount < firsPlayerWinningCounts; winningCount++) {
 			tennisGame.getFirstPlayer().incrementPlayerScore();
