@@ -21,4 +21,17 @@ public class TennisGameRunnerTest {
 
 		assertThat(gameResult, is("FirstPlayer won the game"));
 	}
+
+	@Test
+	public void shouldReturnTheGameResultBasedOnUserInputsWhenPlayGameMethodIsCalledWithWarningMessage() {
+		StringBuilder inputStreamBuilder = new StringBuilder("FirstPlayer").append("\n").append("SecondPlayer")
+				.append("\n").append("A").append("\n").append("A").append("\n").append("X").append("\n").append("A")
+				.append("\n").append("A");
+
+		System.setIn(new ByteArrayInputStream(inputStreamBuilder.toString().getBytes()));
+		TennisGameRunner gameRunner = new TennisGameRunner();
+		String gameResult = gameRunner.playGame();
+
+		assertThat(gameResult, is("FirstPlayer won the game"));
+	}
 }
