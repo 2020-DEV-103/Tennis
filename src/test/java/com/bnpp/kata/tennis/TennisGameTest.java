@@ -51,4 +51,12 @@ public class TennisGameTest {
 
 		assertThat("Fifteen-Love", CoreMatchers.is(tennisGame.computeGameScore()));
 	}
+
+	@Test
+	public void gameScoreShouldBeLoveThirtyWhenSecondPlayerWonFirstAndScondService() {
+		tennisGame.getSecondPlayer().incrementPlayerScore();
+		tennisGame.getSecondPlayer().incrementPlayerScore();
+
+		assertThat("Love-Thirty", CoreMatchers.is(tennisGame.computeGameScore()));
+	}
 }
