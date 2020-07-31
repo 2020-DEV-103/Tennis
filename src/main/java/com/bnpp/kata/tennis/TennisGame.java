@@ -4,6 +4,7 @@ import com.bnpp.kata.tennis.model.Player;
 
 public class TennisGame {
 
+	private static final String FIFTEEN_LOVE_GAME_SCORE = "Fifteen-Love";
 	private static final String LOVE_ALL_GAME_SCORE = "Love-All";
 	private static final String SECOND_PLAYER_NAME = "SecondPlayer";
 	private static final String FIRST_PLAYER_NAME = "FirstPlayer";
@@ -24,10 +25,13 @@ public class TennisGame {
 	}
 
 	public String computeGameScore() {
+		String gameScore;
 		if (firstPlayer.getScoredPoint() == 1 && secondPlayer.getScoredPoint() == 0) {
-			return "Fifteen-Love";
+			gameScore = FIFTEEN_LOVE_GAME_SCORE;
+		} else {
+			gameScore = LOVE_ALL_GAME_SCORE;
 		}
-		return LOVE_ALL_GAME_SCORE;
+		return gameScore;
 	}
 
 }
