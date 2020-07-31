@@ -18,4 +18,8 @@ public class TennisGame {
 		return FIRST_PLAYER_NAME;
 	}
 
+	public String getSecondPlayerName() {
+		return "SecondPlayer";
+	}
+
 }

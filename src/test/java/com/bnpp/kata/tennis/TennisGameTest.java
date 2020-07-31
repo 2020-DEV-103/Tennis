@@ -32,4 +32,10 @@ public class TennisGameTest {
 
 		assertThat("FirstPlayer", CoreMatchers.is(tennisGame.getFirstPlayerName()));
 	}
+
+	@Test
+	public void secondPlayerNameShouldBeInitializedAsSecondPlayerBeforeGameBegins() {
+
+		assertThat("SecondPlayer", CoreMatchers.is(tennisGame.getSecondPlayerName()));
+	}
 }
