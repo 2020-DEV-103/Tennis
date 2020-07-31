@@ -27,13 +27,17 @@ public class TennisGame {
 			gameScore = isPlayersHasDeuceScore() ? DEUCE_GAME_SCORE : getGameAllScore();
 		} else if (isPlayerWonTheGame()) {
 			gameScore = getTopScoredPlayerName() + WON_THE_GAME_SCORE_RESULT;
-		} else if (firstPlayer.getScoredPoint() >= MINIMUM_WINNING_SCORE
-				&& firstPlayer.getScoredPoint() - secondPlayer.getScoredPoint() == 1) {
-			gameScore = getTopScoredPlayerName() + " has advantage";
+		} else if (isPlayerHasAdvantageScore()) {
+			gameScore = getTopScoredPlayerName() + ADVANTAGE_GAME_SCORE;
 		} else {
 			gameScore = getGameScore();
 		}
 		return gameScore;
+	}
+
+	private boolean isPlayerHasAdvantageScore() {
+		return firstPlayer.getScoredPoint() >= MINIMUM_WINNING_SCORE
+				&& firstPlayer.getScoredPoint() - secondPlayer.getScoredPoint() == ADVANTAGE_DIFFERENCE_POINT;
 	}
 
 	private boolean isPlayersHasDeuceScore() {
