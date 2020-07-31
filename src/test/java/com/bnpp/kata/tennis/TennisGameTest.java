@@ -120,6 +120,15 @@ public class TennisGameTest {
 		assertThat("Deuce", CoreMatchers.is(tennisGame.computeGameScore()));
 	}
 
+	@Test
+	@Parameters({ "4,4", "5,5", "7,7", "10,10", "12,12", "13,13" })
+	public void gameScoreShouldBeDeuceWhenBothPlayersHavingSameScoreForMoreScenarios(int firstPlayerPoints,
+			int secondPlayerPoints) {
+		updatePlayersScore(firstPlayerPoints, secondPlayerPoints);
+
+		assertThat("Deuce", CoreMatchers.is(tennisGame.computeGameScore()));
+	}
+
 	private void updatePlayersScore(int firsPlayerWinningCounts, int secondPlayerWinningCounts) {
 		for (int winningCount = 0; winningCount < firsPlayerWinningCounts; winningCount++) {
 			tennisGame.getFirstPlayer().incrementPlayerScore();
