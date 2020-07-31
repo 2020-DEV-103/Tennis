@@ -6,7 +6,7 @@ public class TennisGame {
 
 	private static final String GAME_SCORE_ALL = "All";
 	private static final String GAME_SCORE_SEPARATOR = "-";
-	private static final String[] GAME_SCORE = { "Love", "Fifteen", "Thirty" };
+	private static final String[] GAME_SCORE = { "Love", "Fifteen", "Thirty", "Forty" };
 	private static final String SECOND_PLAYER_NAME = "SecondPlayer";
 	private static final String FIRST_PLAYER_NAME = "FirstPlayer";
 	private Player firstPlayer;
