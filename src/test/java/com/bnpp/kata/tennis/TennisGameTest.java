@@ -2,7 +2,7 @@ package com.bnpp.kata.tennis;
 
 import static org.junit.Assert.assertThat;
 
-import org.hamcrest.CoreMatchers;
+import static org.hamcrest.CoreMatchers.is;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,59 +25,59 @@ public class TennisGameTest {
 	@Test
 	public void firstPlayerScoredShouldBeZeroBeforeGameBegins() {
 
-		assertThat(0, CoreMatchers.is(tennisGame.getFirstPlayer().getScoredPoint()));
+		assertThat(0, is(tennisGame.getFirstPlayer().getScoredPoint()));
 	}
 
 	@Test
 	public void secondPlayerScoredShouldBeZeroBeforeGameBegins() {
 
-		assertThat(0, CoreMatchers.is(tennisGame.getSecondPlayer().getScoredPoint()));
+		assertThat(0, is(tennisGame.getSecondPlayer().getScoredPoint()));
 	}
 
 	@Test
 	public void firstPlayerNameShouldBeInitializedAsFirstPlayerBeforeGameBegins() {
 
-		assertThat("FirstPlayer", CoreMatchers.is(tennisGame.getFirstPlayer().getName()));
+		assertThat("FirstPlayer", is(tennisGame.getFirstPlayer().getName()));
 	}
 
 	@Test
 	public void secondPlayerNameShouldBeInitializedAsSecondPlayerBeforeGameBegins() {
 
-		assertThat("SecondPlayer", CoreMatchers.is(tennisGame.getSecondPlayer().getName()));
+		assertThat("SecondPlayer", is(tennisGame.getSecondPlayer().getName()));
 	}
 
 	@Test
 	public void gameScoreShouldBeLoveAllBeforeGameBegins() {
 
-		assertThat("Love-All", CoreMatchers.is(tennisGame.computeGameScore()));
+		assertThat("Love-All", is(tennisGame.computeGameScore()));
 	}
 
 	@Test
 	public void firstPlayerScoreShouldBeFifteenLoveWhenFirstPlayerWontheFirstService() {
 		updatePlayersScore(1, 0);
 
-		assertThat("Fifteen-Love", CoreMatchers.is(tennisGame.computeGameScore()));
+		assertThat("Fifteen-Love", is(tennisGame.computeGameScore()));
 	}
 
 	@Test
 	public void gameScoreShouldBeLoveThirtyWhenSecondPlayerWonFirstAndScondService() {
 		updatePlayersScore(0, 2);
 
-		assertThat("Love-Thirty", CoreMatchers.is(tennisGame.computeGameScore()));
+		assertThat("Love-Thirty", is(tennisGame.computeGameScore()));
 	}
 
 	@Test
 	public void gameScoreShouldBeFifteenAllWhenBothPlayersWontheOneServiceRespectively() {
 		updatePlayersScore(1, 1);
 
-		assertThat("Fifteen-All", CoreMatchers.is(tennisGame.computeGameScore()));
+		assertThat("Fifteen-All", is(tennisGame.computeGameScore()));
 	}
 
 	@Test
 	public void gameScoreShouldBeFifteenFortyWhenFirstPlayerWonOneServiceAndSecondPlayerWonTheeServices() {
 		updatePlayersScore(1, 3);
 
-		assertThat("Fifteen-Forty", CoreMatchers.is(tennisGame.computeGameScore()));
+		assertThat("Fifteen-Forty", is(tennisGame.computeGameScore()));
 	}
 
 	@Test
@@ -88,21 +88,21 @@ public class TennisGameTest {
 			int firstPlayerPoints, int secondPlayerPoints, String expectedGameResult) {
 		updatePlayersScore(firstPlayerPoints, secondPlayerPoints);
 
-		assertThat(expectedGameResult, CoreMatchers.is(tennisGame.computeGameScore()));
+		assertThat(expectedGameResult, is(tennisGame.computeGameScore()));
 	}
 
 	@Test
 	public void gameShouldBeWonByFirstPlayerWhenFirstPlayerScoreMinimumFourPointsAndSecondPlayerScoreShouldBeTwoPointsDifferenceWithFirstPlayer() {
 		updatePlayersScore(4, 1);
 
-		assertThat("FirstPlayer won the game", CoreMatchers.is(tennisGame.computeGameScore()));
+		assertThat("FirstPlayer won the game", is(tennisGame.computeGameScore()));
 	}
 
 	@Test
 	public void gameShouldBeWonBySecondPlayerWhenSecondPlayerScoreMinimumFourPointsAndFirstPlayerScoreShouldBeTwoPointsDifferenceWithSecondPlayer() {
 		updatePlayersScore(2, 4);
 
-		assertThat("SecondPlayer won the game", CoreMatchers.is(tennisGame.computeGameScore()));
+		assertThat("SecondPlayer won the game", is(tennisGame.computeGameScore()));
 	}
 
 	@Test
@@ -112,14 +112,14 @@ public class TennisGameTest {
 			int firstPlayerScorePoints, int secondPlayerScorePoints, String expectedWinningResult) {
 		updatePlayersScore(firstPlayerScorePoints, secondPlayerScorePoints);
 
-		assertThat(expectedWinningResult, CoreMatchers.is(tennisGame.computeGameScore()));
+		assertThat(expectedWinningResult, is(tennisGame.computeGameScore()));
 	}
 
 	@Test
 	public void gameScoreShouldBeDeuceWhenBothPlayersHavingSameScoreAsMinimumTheePoints() {
 		updatePlayersScore(3, 3);
 
-		assertThat("Deuce", CoreMatchers.is(tennisGame.computeGameScore()));
+		assertThat("Deuce", is(tennisGame.computeGameScore()));
 	}
 
 	@Test
@@ -128,21 +128,21 @@ public class TennisGameTest {
 			int secondPlayerPoints) {
 		updatePlayersScore(firstPlayerPoints, secondPlayerPoints);
 
-		assertThat("Deuce", CoreMatchers.is(tennisGame.computeGameScore()));
+		assertThat("Deuce", is(tennisGame.computeGameScore()));
 	}
 
 	@Test
 	public void gameScoreShouldBeFirstPlayerHasAdvantageWhenFirstPlayerScoredFourPointsAndSecondPlayerScoredThreePoints() {
 		updatePlayersScore(4, 3);
 
-		assertThat("FirstPlayer has advantage", CoreMatchers.is(tennisGame.computeGameScore()));
+		assertThat("FirstPlayer has advantage", is(tennisGame.computeGameScore()));
 	}
 
 	@Test
 	public void gameScoreShouldBeSecondPlayerHasAdvantageWhenSecondPlayerScoredFourPointsAndFirstPlayerScoredThreePoints() {
 		updatePlayersScore(3, 4);
 
-		assertThat("SecondPlayer has advantage", CoreMatchers.is(tennisGame.computeGameScore()));
+		assertThat("SecondPlayer has advantage", is(tennisGame.computeGameScore()));
 	}
 
 	@Test
@@ -153,15 +153,15 @@ public class TennisGameTest {
 			int secondPlayerScore, String expectedGameResult) {
 		updatePlayersScore(firstPlayerScore, secondPlayerScore);
 
-		assertThat(expectedGameResult, CoreMatchers.is(tennisGame.computeGameScore()));
+		assertThat(expectedGameResult, is(tennisGame.computeGameScore()));
 	}
 
 	@Test
 	public void bothPlayerNamesShouldBeEqualWithInitializedGameInstantParameter() {
 		tennisGame = new TennisGame("AAA", "BBB");
 
-		assertThat("AAA", CoreMatchers.is(tennisGame.getFirstPlayer().getName()));
-		assertThat("BBB", CoreMatchers.is(tennisGame.getSecondPlayer().getName()));
+		assertThat("AAA", is(tennisGame.getFirstPlayer().getName()));
+		assertThat("BBB", is(tennisGame.getSecondPlayer().getName()));
 	}
 
 	@Test
@@ -172,7 +172,7 @@ public class TennisGameTest {
 		int expectedFirstPlayerPoint = tennisGame.getFirstPlayer().getScoredPoint() + 1;
 		tennisGame.addServicePointToWinner("A");
 
-		assertThat(expectedFirstPlayerPoint, CoreMatchers.is(tennisGame.getFirstPlayer().getScoredPoint()));
+		assertThat(expectedFirstPlayerPoint, is(tennisGame.getFirstPlayer().getScoredPoint()));
 	}
 
 	@Test
@@ -183,7 +183,7 @@ public class TennisGameTest {
 		int expectedSecondPlayerPoint = tennisGame.getSecondPlayer().getScoredPoint() + 1;
 		tennisGame.addServicePointToWinner("B");
 
-		assertThat(expectedSecondPlayerPoint, CoreMatchers.is(tennisGame.getSecondPlayer().getScoredPoint()));
+		assertThat(expectedSecondPlayerPoint, is(tennisGame.getSecondPlayer().getScoredPoint()));
 	}
 
 	@Test(expected = InvalidUserInputException.class)

@@ -2,7 +2,7 @@ package com.bnpp.kata.tennis.model;
 
 import static org.junit.Assert.assertThat;
 
-import org.hamcrest.CoreMatchers;
+import static org.hamcrest.CoreMatchers.is;
 import org.junit.Test;
 
 public class PlayerTest {
@@ -15,6 +15,6 @@ public class PlayerTest {
 		int existingScoredPoint = player.getScoredPoint();
 		player.incrementPlayerScore();
 
-		assertThat(existingScoredPoint + 1, CoreMatchers.is(player.getScoredPoint()));
+		assertThat(existingScoredPoint + 1, is(player.getScoredPoint()));
 	}
 }
