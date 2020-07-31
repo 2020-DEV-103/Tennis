@@ -14,20 +14,12 @@ public class TennisGame {
 		secondPlayer = new Player(SECOND_PLAYER_NAME);
 	}
 
-	public int getFirstPlayerScoredPoint() {
-		return firstPlayer.getScoredPoint();
+	protected Player getFirstPlayer() {
+		return firstPlayer;
 	}
 
-	public int getSecondPlayerScoredPoint() {
-		return secondPlayer.getScoredPoint();
-	}
-
-	public String getFirstPlayerName() {
-		return firstPlayer.getName();
-	}
-
-	public String getSecondPlayerName() {
-		return secondPlayer.getName();
+	protected Player getSecondPlayer() {
+		return secondPlayer;
 	}
 
 }
