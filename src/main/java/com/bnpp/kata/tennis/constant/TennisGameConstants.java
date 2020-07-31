@@ -9,7 +9,6 @@ public class TennisGameConstants {
 	public static final int ADVANTAGE_DIFFERENCE_POINT = 1;
 	public static final String DEUCE_GAME_SCORE = "Deuce";
 	public static final int MINIMUM_DEUCE_SCORE = 3;
-	public static final int MINIMUM_WINNING_DIFFERENCE_POINT = 2;
 	public static final int MINIMUM_WINNING_SCORE = 4;
 	public static final String WON_THE_GAME_SCORE_RESULT = " won the game";
 	public static final String GAME_SCORE_ALL = "All";

@@ -25,20 +25,26 @@ public class TennisGame {
 		String gameScore;
 		if (isPlayersHasSameScore()) {
 			gameScore = isPlayersHasDeuceScore() ? DEUCE_GAME_SCORE : getGameAllScore();
-		} else if (isPlayerWonTheGame()) {
-			gameScore = getTopScoredPlayerName() + WON_THE_GAME_SCORE_RESULT;
-		} else if (isPlayerHasAdvantageScore()) {
-			gameScore = getTopScoredPlayerName() + ADVANTAGE_GAME_SCORE;
+		} else if (isPlayerHasWinningEligible()) {
+			gameScore = isPlayersHasAdvantageScore() ? getPlayerScore(ADVANTAGE_GAME_SCORE)
+					: getPlayerScore(WON_THE_GAME_SCORE_RESULT);
 		} else {
 			gameScore = getGameScore();
 		}
 		return gameScore;
 	}
 
-	private boolean isPlayerHasAdvantageScore() {
-		return (firstPlayer.getScoredPoint() >= MINIMUM_WINNING_SCORE
-				|| secondPlayer.getScoredPoint() >= MINIMUM_WINNING_SCORE)
-				&& Math.abs(firstPlayer.getScoredPoint() - secondPlayer.getScoredPoint()) == ADVANTAGE_DIFFERENCE_POINT;
+	private String getPlayerScore(String winningScenario) {
+		return getTopScoredPlayerName() + winningScenario;
+	}
+
+	private boolean isPlayersHasAdvantageScore() {
+		return Math.abs(firstPlayer.getScoredPoint() - secondPlayer.getScoredPoint()) == ADVANTAGE_DIFFERENCE_POINT;
+	}
+
+	private boolean isPlayerHasWinningEligible() {
+		return firstPlayer.getScoredPoint() >= MINIMUM_WINNING_SCORE
+				|| secondPlayer.getScoredPoint() >= MINIMUM_WINNING_SCORE;
 	}
 
 	private boolean isPlayersHasDeuceScore() {
@@ -52,16 +58,6 @@ public class TennisGame {
 	private String getTopScoredPlayerName() {
 		return firstPlayer.getScoredPoint() > secondPlayer.getScoredPoint() ? firstPlayer.getName()
 				: secondPlayer.getName();
-	}
-
-	private boolean isPlayerWonTheGame() {
-		return (firstPlayer.getScoredPoint() >= MINIMUM_WINNING_SCORE
-				|| secondPlayer.getScoredPoint() >= MINIMUM_WINNING_SCORE) && isPlayerHasWinningMinimumDifference();
-	}
-
-	private boolean isPlayerHasWinningMinimumDifference() {
-		return Math
-				.abs(firstPlayer.getScoredPoint() - secondPlayer.getScoredPoint()) >= MINIMUM_WINNING_DIFFERENCE_POINT;
 	}
 
 	private String getGameScore() {
