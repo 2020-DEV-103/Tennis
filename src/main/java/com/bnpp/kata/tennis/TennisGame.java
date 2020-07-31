@@ -13,4 +13,8 @@ public class TennisGame {
 		return secondPlayerScoredPoint;
 	}
 
+	public String getFirstPlayerName() {
+		return "FirstPlayer";
+	}
+
 }
