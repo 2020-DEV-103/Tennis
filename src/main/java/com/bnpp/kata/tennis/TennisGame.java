@@ -22,4 +22,8 @@ public class TennisGame {
 		return secondPlayer;
 	}
 
+	public String computeGameScore() {
+		return "Love-All";
+	}
+
 }
