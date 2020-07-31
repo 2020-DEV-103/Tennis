@@ -23,18 +23,22 @@ public class TennisGame {
 
 	public String computeGameScore() {
 		String gameScore;
-		if (firstPlayer.getScoredPoint() == secondPlayer.getScoredPoint()) {
-			if (firstPlayer.getScoredPoint() >= MINIMUM_DEUCE_SCORE) {
-				gameScore = DEUCE_GAME_SCORE;
-			} else {
-				gameScore = getGameAllScore();
-			}
+		if (isPlayersHasSameScore()) {
+			gameScore = isPlayersHasDeuceScore() ? DEUCE_GAME_SCORE : getGameAllScore();
 		} else if (isPlayerWonTheGame()) {
 			gameScore = getTopScoredPlayerName() + WON_THE_GAME_SCORE_RESULT;
 		} else {
 			gameScore = getGameScore();
 		}
 		return gameScore;
+	}
+
+	private boolean isPlayersHasDeuceScore() {
+		return firstPlayer.getScoredPoint() >= MINIMUM_DEUCE_SCORE;
+	}
+
+	private boolean isPlayersHasSameScore() {
+		return firstPlayer.getScoredPoint() == secondPlayer.getScoredPoint();
 	}
 
 	private String getTopScoredPlayerName() {
