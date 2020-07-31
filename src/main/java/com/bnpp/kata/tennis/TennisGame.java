@@ -24,6 +24,9 @@ public class TennisGame {
 	}
 
 	public String computeGameScore() {
+		if (firstPlayer.getScoredPoint() == 1 && secondPlayer.getScoredPoint() == 0) {
+			return "Fifteen-Love";
+		}
 		return LOVE_ALL_GAME_SCORE;
 	}
 
