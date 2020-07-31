@@ -10,7 +10,11 @@ public class TennisGameConstants {
 	public static final String WON_THE_GAME_SCORE_RESULT = " won the game";
 	public static final String GAME_SCORE_ALL = "All";
 	public static final String GAME_SCORE_SEPARATOR = "-";
-	public static final String[] GAME_SCORE = { "Love", "Fifteen", "Thirty", "Forty" };
+	private static final String[] GAME_SCORE = { "Love", "Fifteen", "Thirty", "Forty" };
 	public static final String SECOND_PLAYER_NAME = "SecondPlayer";
 	public static final String FIRST_PLAYER_NAME = "FirstPlayer";
+
+	public static String[] getScores() {
+		return GAME_SCORE;
+	}
 }
