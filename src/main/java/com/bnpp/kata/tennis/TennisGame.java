@@ -33,19 +33,26 @@ public class TennisGame {
 		if (firstPlayer.getScoredPoint() == secondPlayer.getScoredPoint()) {
 			gameScore = getGameAllScore();
 		} else if (isPlayerWonTheGame()) {
-			gameScore = firstPlayer.getName() + WON_THE_GAME_SCORE_RESULT;
-		} else if (secondPlayer.getScoredPoint() >= MINIMUM_WINNING_SCORE
-				&& (secondPlayer.getScoredPoint() - firstPlayer.getScoredPoint() >= MINIMUM_WINNING_DIFFERENCE_POINT)) {
-			gameScore = secondPlayer.getName() + WON_THE_GAME_SCORE_RESULT;
+			gameScore = getTopScoredPlayerName() + WON_THE_GAME_SCORE_RESULT;
 		} else {
 			gameScore = getGameScore();
 		}
 		return gameScore;
 	}
 
+	private String getTopScoredPlayerName() {
+		return firstPlayer.getScoredPoint() > secondPlayer.getScoredPoint() ? firstPlayer.getName()
+				: secondPlayer.getName();
+	}
+
 	private boolean isPlayerWonTheGame() {
-		return firstPlayer.getScoredPoint() >= MINIMUM_WINNING_SCORE
-				&& (firstPlayer.getScoredPoint() - secondPlayer.getScoredPoint() >= MINIMUM_WINNING_DIFFERENCE_POINT);
+		return (firstPlayer.getScoredPoint() >= MINIMUM_WINNING_SCORE
+				|| secondPlayer.getScoredPoint() >= MINIMUM_WINNING_SCORE) && isPlayerHasWinningMinimumDifference();
+	}
+
+	private boolean isPlayerHasWinningMinimumDifference() {
+		return Math
+				.abs(firstPlayer.getScoredPoint() - secondPlayer.getScoredPoint()) >= MINIMUM_WINNING_DIFFERENCE_POINT;
 	}
 
 	private String getGameScore() {
