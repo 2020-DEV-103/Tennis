@@ -3,6 +3,7 @@ package com.bnpp.kata;
 import java.util.Scanner;
 
 import com.bnpp.kata.tennis.TennisGame;
+import static com.bnpp.kata.tennis.constant.TennisGameConstants.*;
 import com.bnpp.kata.tennis.exception.InvalidUserInputException;
 
 public class TennisGameRunner {
@@ -23,6 +24,6 @@ public class TennisGameRunner {
 	}
 
 	private boolean isGameInProgress(String gameScore) {
-		return gameScore.indexOf("won the game") == -1;
+		return gameScore.indexOf(WON_THE_GAME_SCORE_RESULT) == GAME_SCORE_COMP_NEGATIVE_INDEX;
 	}
 }
