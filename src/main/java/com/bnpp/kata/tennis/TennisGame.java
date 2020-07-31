@@ -82,7 +82,7 @@ public class TennisGame {
 		} else if (PlayerIndicator.SECONDPLAYER.getValue().equals(winningPlayerIndicator)) {
 			secondPlayer.incrementPlayerScore();
 		} else {
-			throw new InvalidUserInputException("Invalid user input for identifying a player indication");
+			throw new InvalidUserInputException(INVALID_USER_INPUT_EXCEPTION);
 		}
 	}
 

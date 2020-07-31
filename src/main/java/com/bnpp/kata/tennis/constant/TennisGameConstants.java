@@ -5,6 +5,7 @@ public class TennisGameConstants {
 	private TennisGameConstants() {
 	}
 
+	public static final String INVALID_USER_INPUT_EXCEPTION = "Invalid user input for identifying a player indication";
 	public static final String ADVANTAGE_GAME_SCORE = " has advantage";
 	public static final int ADVANTAGE_DIFFERENCE_POINT = 1;
 	public static final String DEUCE_GAME_SCORE = "Deuce";
