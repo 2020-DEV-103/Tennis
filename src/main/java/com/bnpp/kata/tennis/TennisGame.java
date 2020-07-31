@@ -13,6 +13,11 @@ public class TennisGame {
 		secondPlayer = new Player(SECOND_PLAYER_NAME);
 	}
 
+	public TennisGame(String firstPlayerName, String secondPlayerName) {
+		firstPlayer = new Player(firstPlayerName);
+		secondPlayer = new Player(secondPlayerName);
+	}
+
 	protected Player getFirstPlayer() {
 		return firstPlayer;
 	}

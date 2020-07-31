@@ -154,6 +154,14 @@ public class TennisGameTest {
 		assertThat(expectedGameResult, CoreMatchers.is(tennisGame.computeGameScore()));
 	}
 
+	@Test
+	public void bothPlayerNamesShouldBeEqualWithInitializedGameInstantParameter() {
+		tennisGame = new TennisGame("AAA", "BBB");
+
+		assertThat("AAA", CoreMatchers.is(tennisGame.getFirstPlayer().getName()));
+		assertThat("BBB", CoreMatchers.is(tennisGame.getSecondPlayer().getName()));
+	}
+
 	private void updatePlayersScore(int firsPlayerWinningCounts, int secondPlayerWinningCounts) {
 		for (int winningCount = 0; winningCount < firsPlayerWinningCounts; winningCount++) {
 			tennisGame.getFirstPlayer().incrementPlayerScore();
