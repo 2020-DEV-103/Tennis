@@ -136,6 +136,13 @@ public class TennisGameTest {
 		assertThat("FirstPlayer has advantage", CoreMatchers.is(tennisGame.computeGameScore()));
 	}
 
+	@Test
+	public void gameScoreShouldBeSecondPlayerHasAdvantageWhenSecondPlayerScoredFourPointsAndFirstPlayerScoredThreePoints() {
+		updatePlayersScore(3, 4);
+
+		assertThat("SecondPlayer has advantage", CoreMatchers.is(tennisGame.computeGameScore()));
+	}
+
 	private void updatePlayersScore(int firsPlayerWinningCounts, int secondPlayerWinningCounts) {
 		for (int winningCount = 0; winningCount < firsPlayerWinningCounts; winningCount++) {
 			tennisGame.getFirstPlayer().incrementPlayerScore();

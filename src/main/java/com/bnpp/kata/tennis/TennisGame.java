@@ -36,8 +36,9 @@ public class TennisGame {
 	}
 
 	private boolean isPlayerHasAdvantageScore() {
-		return firstPlayer.getScoredPoint() >= MINIMUM_WINNING_SCORE
-				&& firstPlayer.getScoredPoint() - secondPlayer.getScoredPoint() == ADVANTAGE_DIFFERENCE_POINT;
+		return (firstPlayer.getScoredPoint() >= MINIMUM_WINNING_SCORE
+				|| secondPlayer.getScoredPoint() >= MINIMUM_WINNING_SCORE)
+				&& Math.abs(firstPlayer.getScoredPoint() - secondPlayer.getScoredPoint()) == ADVANTAGE_DIFFERENCE_POINT;
 	}
 
 	private boolean isPlayersHasDeuceScore() {
