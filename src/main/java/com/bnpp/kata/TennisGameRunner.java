@@ -11,33 +11,35 @@ public class TennisGameRunner {
 
 	private static final Logger LOGGER = Logger.getLogger(TennisGameRunner.class.getName());
 
-	public static void main(String[] args) throws InvalidUserInputException {
+	public static void main(String[] args) {
 		new TennisGameRunner().playGame();
 	}
 
-	public String playGame() throws InvalidUserInputException {
-		LOGGER.info("******** Welcome to play the Tennis Game! ********");
-		String gameScore;
+	public String playGame() {
+		LOGGER.info(WELCOME_GAME_MESSAGE);
+		String gameScore = INITIAL_GAME_MESSAGE;
 		Scanner inputScanner = new Scanner(System.in);
-		LOGGER.info("Please enter the first palyer name");
+		LOGGER.info(ENTER_FIRST_PALYER_NAME_MESSAGE);
 		String playerOneName = inputScanner.nextLine();
-		LOGGER.info("Please enter the second player name");
+		LOGGER.info(ENTER_SECOND_PALYER_NAME_MESSAGE);
 		String playerTwoName = inputScanner.nextLine();
 		TennisGame tennisGame = new TennisGame(playerOneName, playerTwoName);
-		String winningIndicatorMessage = String.format(
-				"Press 'A' to indicate '%s' win the current service or Press 'B' to indicate ' %s' win the current service",
-				playerOneName, playerTwoName);
-		LOGGER.info("******** Lets start the game ! ********");
+		String winningIndicatorMessage = String.format(PLAYER_INDICATE_MESSAGE, playerOneName, playerTwoName);
+		LOGGER.info(START_GAME_MESSAGE);
 		do {
-			LOGGER.info(winningIndicatorMessage);
-			char winningIndicator = inputScanner.next().charAt(0);
-			tennisGame.addServicePointToWinner(String.valueOf(winningIndicator));
-			gameScore = tennisGame.computeGameScore();
-			String scoreDetails = String.format("Current Game score: %s", gameScore);
-			LOGGER.info(scoreDetails);
+			try {
+				LOGGER.info(winningIndicatorMessage);
+				char winningIndicator = inputScanner.next().charAt(0);
+				tennisGame.addServicePointToWinner(String.valueOf(winningIndicator));
+				gameScore = tennisGame.computeGameScore();
+				String scoreDetails = String.format(CURRENT_GAME_SCORE_MESSAGE, gameScore);
+				LOGGER.info(scoreDetails);
+			} catch (InvalidUserInputException e) {
+				LOGGER.warning(e.getMessage());
+			}
 		} while (isGameInProgress(gameScore));
 		inputScanner.close();
-		LOGGER.info("******** Game Over ! ********");
+		LOGGER.info(GAME_OVER_MESSAGE);
 		return gameScore;
 	}
 

@@ -7,13 +7,10 @@ import java.io.ByteArrayInputStream;
 import static org.hamcrest.CoreMatchers.*;
 import org.junit.Test;
 
-import com.bnpp.kata.tennis.exception.InvalidUserInputException;
-
 public class TennisGameRunnerTest {
 
 	@Test
-	public void shouldReturnTheGameResultBasedOnUserInputsWhenPlayGameMethodIsCalled()
-			throws InvalidUserInputException {
+	public void shouldReturnTheGameResultBasedOnUserInputsWhenPlayGameMethodIsCalled() {
 		StringBuilder inputStreamBuilder = new StringBuilder("FirstPlayer").append("\n").append("SecondPlayer")
 				.append("\n").append("A").append("\n").append("A").append("\n").append("B").append("\n").append("A")
 				.append("\n").append("A");
