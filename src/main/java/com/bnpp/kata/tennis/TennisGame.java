@@ -27,6 +27,9 @@ public class TennisGame {
 			gameScore = isPlayersHasDeuceScore() ? DEUCE_GAME_SCORE : getGameAllScore();
 		} else if (isPlayerWonTheGame()) {
 			gameScore = getTopScoredPlayerName() + WON_THE_GAME_SCORE_RESULT;
+		} else if (firstPlayer.getScoredPoint() >= MINIMUM_WINNING_SCORE
+				&& firstPlayer.getScoredPoint() - secondPlayer.getScoredPoint() == 1) {
+			gameScore = getTopScoredPlayerName() + " has advantage";
 		} else {
 			gameScore = getGameScore();
 		}
