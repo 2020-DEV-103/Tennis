@@ -81,7 +81,7 @@ public class TennisGameTest {
 	@Test
 	@Parameters({ "0, 1, Love-Fifteen", "0, 3, Love-Forty", "1, 2, Fifteen-Thirty", "2, 0, Thirty-Love",
 			"2, 1, Thirty-Fifteen", "2, 2, Thirty-All", "2, 3, Thirty-Forty", "3, 0, Forty-Love", "3, 1, Forty-Fifteen",
-			"3,2 , Forty-Thirty", "3,3 , Forty-All" })
+			"3,2 , Forty-Thirty" })
 	public void gameScoreShouldBeExpectedResultWhichIsMentionedInPreDefinedParametersWithPlayersPointsOfTheGame(
 			int firstPlayerPoints, int secondPlayerPoints, String expectedGameResult) {
 		updatePlayersScore(firstPlayerPoints, secondPlayerPoints);
@@ -111,6 +111,13 @@ public class TennisGameTest {
 		updatePlayersScore(firstPlayerScorePoints, secondPlayerScorePoints);
 
 		assertThat(expectedWinningResult, CoreMatchers.is(tennisGame.computeGameScore()));
+	}
+
+	@Test
+	public void gameScoreShouldBeDeuceWhenBothPlayersHavingSameScoreAsMinimumTheePoints() {
+		updatePlayersScore(3, 3);
+
+		assertThat("Deuce", CoreMatchers.is(tennisGame.computeGameScore()));
 	}
 
 	private void updatePlayersScore(int firsPlayerWinningCounts, int secondPlayerWinningCounts) {
