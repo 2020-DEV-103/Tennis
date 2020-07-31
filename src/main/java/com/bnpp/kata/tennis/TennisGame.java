@@ -2,12 +2,15 @@ package com.bnpp.kata.tennis;
 
 public class TennisGame {
 
+	private int firstPlayerScoredPoint;
+	private int secondPlayerScoredPoint;
+
 	public int getFirstPlayerScoredPoint() {
-		return 0;
+		return firstPlayerScoredPoint;
 	}
 
 	public int getSecondPlayerScoredPoint() {
-		return 0;
+		return secondPlayerScoredPoint;
 	}
 
 }
