@@ -9,8 +9,7 @@ public class TennisGame {
 	private Player secondPlayer;
 
 	public TennisGame() {
-		firstPlayer = new Player(FIRST_PLAYER_NAME);
-		secondPlayer = new Player(SECOND_PLAYER_NAME);
+		this(FIRST_PLAYER_NAME, SECOND_PLAYER_NAME);
 	}
 
 	public TennisGame(String firstPlayerName, String secondPlayerName) {
