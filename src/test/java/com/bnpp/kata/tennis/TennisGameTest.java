@@ -103,6 +103,16 @@ public class TennisGameTest {
 		assertThat("SecondPlayer won the game", CoreMatchers.is(tennisGame.computeGameScore()));
 	}
 
+	@Test
+	@Parameters({ "4, 2, FirstPlayer won the game", "3, 5, SecondPlayer won the game", "6, 4, FirstPlayer won the game",
+			"10, 8, FirstPlayer won the game", "9,11, SecondPlayer won the game", "13,11, FirstPlayer won the game" })
+	public void gameWinningResultShouldBeExpectedWhichIsMentionedInPreDefinedParametersWithPlayersPointsOfTheGame(
+			int firstPlayerScorePoints, int secondPlayerScorePoints, String expectedWinningResult) {
+		updatePlayersScore(firstPlayerScorePoints, secondPlayerScorePoints);
+
+		assertThat(expectedWinningResult, CoreMatchers.is(tennisGame.computeGameScore()));
+	}
+
 	private void updatePlayersScore(int firsPlayerWinningCounts, int secondPlayerWinningCounts) {
 		for (int winningCount = 0; winningCount < firsPlayerWinningCounts; winningCount++) {
 			tennisGame.getFirstPlayer().incrementPlayerScore();
