@@ -89,6 +89,13 @@ public class TennisGameTest {
 		assertThat(expectedGameResult, CoreMatchers.is(tennisGame.computeGameScore()));
 	}
 
+	@Test
+	public void gameShouldBeWonByFirstPlayerWhenFirstPlayerScoreMinimumFourPointsAndSecondPlayerScoreShouldBeTwoPointsDifferenceWithFirstPlayer() {
+		updatePlayersScore(4, 1);
+
+		assertThat("FirstPlayer won the game", CoreMatchers.is(tennisGame.computeGameScore()));
+	}
+
 	private void updatePlayersScore(int firsPlayerWinningCounts, int secondPlayerWinningCounts) {
 		for (int winningCount = 0; winningCount < firsPlayerWinningCounts; winningCount++) {
 			tennisGame.getFirstPlayer().incrementPlayerScore();
