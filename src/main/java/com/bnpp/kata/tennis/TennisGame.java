@@ -24,8 +24,8 @@ public class TennisGame {
 	public String computeGameScore() {
 		String gameScore;
 		if (firstPlayer.getScoredPoint() == secondPlayer.getScoredPoint()) {
-			if (firstPlayer.getScoredPoint() >= 3) {
-				gameScore = "Deuce";
+			if (firstPlayer.getScoredPoint() >= MINIMUM_DEUCE_SCORE) {
+				gameScore = DEUCE_GAME_SCORE;
 			} else {
 				gameScore = getGameAllScore();
 			}

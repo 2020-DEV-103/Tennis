@@ -5,6 +5,8 @@ public class TennisGameConstants {
 	private TennisGameConstants() {
 	}
 
+	public static final String DEUCE_GAME_SCORE = "Deuce";
+	public static final int MINIMUM_DEUCE_SCORE = 3;
 	public static final int MINIMUM_WINNING_DIFFERENCE_POINT = 2;
 	public static final int MINIMUM_WINNING_SCORE = 4;
 	public static final String WON_THE_GAME_SCORE_RESULT = " won the game";
